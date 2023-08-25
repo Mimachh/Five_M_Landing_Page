@@ -9,8 +9,12 @@ const Herosection = ({ state }: HeroProps) => {
     <>
     <AnimatePresence>
       { state &&
-        <div>
-          <motion.div {...slideAnimation('left')}>
+        <div className="flex items-center justify-between">
+          <div className="backgroundImage">
+            <button>Pré inscription</button>
+            <button>Soutenir</button>
+          </div>
+          <motion.div {...slideAnimation('up')}>
             image
           </motion.div>
           <motion.div {...slideAnimation('down')}>
