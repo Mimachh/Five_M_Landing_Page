@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useCycle, AnimatePresence } from "framer-motion";
-import { useSnapshot } from 'valtio'
 
 import MobileMenu from './MobileMenu';
-import { desktopNavLinks, opacityWhenToggle, toggleMobileAppears, toggleMobileNavButton } from "../../../utils/framer"
+import { desktopNavLinks } from "@/utils/framer"
 import state from '@/utils/state';
+import ToggleButton from './ToggleButton';
 
 const Nav = () => {
 
@@ -19,7 +19,7 @@ const Nav = () => {
 
   const [isLargeScreen, setIsLargeScreen] = useState(false);
   const [areWeLarge, setAreWeLarge] = useState(isLargeScreen);
-  console.log(areWeLarge)
+
   useEffect(() => {
     const handleResize = () => {
       if (typeof window !== 'undefined') {
@@ -47,38 +47,15 @@ const Nav = () => {
 
 
   return (
-    <nav className="sticky top-0 inset-x-0 h-16 bg-primary">
+    <nav className="z-50 sticky top-0 inset-x-0 h-16 bg-teal">
       <div className="max-w-6xl mx-auto h-full px-4 flex items-center">
         <div className='w-full relative z-10 flex items-center justify-between'>
           <div>
             Logo
-            {mobileNav}
           </div>
           <AnimatePresence>
           { !areWeLarge && (
-            <motion.div
-            className={areWeLarge ? "hidden" : "block"}
-            animate={areWeLarge ? "openDesktopLink" : "closeDesktopLink"}
-            initial={areWeLarge ? "closeDesktopLink" : "openDesktopLink"}
-            // exit="openDesktopLink"
-            variants={toggleMobileAppears(1)}
-            >
-              {/* Toggle button */}
-              <motion.button 
-                animate={ mobileNav ? "open" : "closed"}
-                onClick={() => toggleMobileButton()} 
-                className="lg:hidden flex flex-col space-y-1">
-                  <motion.span 
-                  variants={toggleMobileNavButton(-45, 5)}
-                  className="w-5 h-px bg-light block"></motion.span>
-                  <motion.span 
-                  variants={opacityWhenToggle('closed', 'open')}
-                  className="w-5 h-px bg-light block"></motion.span>
-                  <motion.span 
-                  variants={toggleMobileNavButton(45, -5)}
-                  className="w-5 h-px bg-light block"></motion.span>
-              </motion.button>
-            </motion.div>
+            <ToggleButton areWeLarge={areWeLarge} toggleMobileButton={toggleMobileButton} mobileNav={mobileNav} />
           )}
           </AnimatePresence>
           <AnimatePresence>
@@ -103,7 +80,7 @@ const Nav = () => {
       </div>
     <AnimatePresence>
       { mobileNav && 
-        <MobileMenu isLargeScreen={isLargeScreen} />
+        <MobileMenu isLargeScreen={isLargeScreen} toggleMobileButton={toggleMobileButton}/>
       }
     </AnimatePresence>
 

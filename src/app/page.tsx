@@ -6,20 +6,19 @@ import Herosection from "./components/hero";
 
 
 import state from "../utils/state"
+import Nav from './components/Nav/Nav';
 
 
 export default function Home() {
   const snap = useSnapshot(state);
 
   return (
-    <AnimatePresence>
-    <section className='bg-dark text-light min-h-screen'>
-      <div>
 
-      </div>
+   
+    <section className='bg-dark text-light min-h-[200vh]'>  
       <Herosection state={snap.isHere}/>
       <About />
     </section>
-    </AnimatePresence>
+
   )
 }

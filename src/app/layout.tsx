@@ -19,11 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} `}>
-        <div className='relative z-50'>
+      <body className={`${inter.className} min-h-screen`}>
+        
         <Nav />
-        </div>
-        {children}
+     <div className='relative z-0 min-h-[200vh]'>
+     {children}
+     </div>
+       
       </body>
     </html>
   )

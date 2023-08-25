@@ -4,9 +4,10 @@ import { mobileNavLinks, mobileBackdropMenu } from "../../../utils/framer"
 
 interface MobileMenuProps {
     isLargeScreen: boolean;
+    toggleMobileButton: () => void;
   }
 
-const MobileMenu = ({ isLargeScreen }: MobileMenuProps) => {
+const MobileMenu = ({ isLargeScreen, toggleMobileButton  }: MobileMenuProps) => {
 
   return (
     <MotionConfig transition={{
@@ -19,14 +20,14 @@ const MobileMenu = ({ isLargeScreen }: MobileMenuProps) => {
           initial="closed"
           animate="open"
           exit="closed"
-          className='fixed inset-0 bg-primary opacity-[0.8]'>
+          className='fixed inset-0 bg-teal opacity-[0.85]'>
             <div className='h-full container mx-auto space-y-10 p-6 flex flex-col justify-center'>
               <motion.div
               variants={mobileNavLinks()}
               >
                   <ul className='space-y-5'>
                     <li>
-                      <a href="" className='text-5xl font-semibold text-light'>Link 1</a>
+                      <a onClick={() => toggleMobileButton()}  href="#about" className='text-5xl font-semibold text-light'>About</a>
                     </li>
                     <li>
                       <a href="" className='text-5xl font-semibold text-light'>Link 1</a>
