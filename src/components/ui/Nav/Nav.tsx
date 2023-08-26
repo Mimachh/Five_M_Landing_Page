@@ -47,7 +47,7 @@ const Nav = () => {
 
 
   return (
-    <nav className="z-50 sticky top-0 inset-x-0 h-16 bg-teal">
+    <nav className="z-50 sticky top-0 inset-x-0 h-16 bg-dark text-light">
       <div className="max-w-6xl mx-auto h-full px-4 flex items-center">
         <div className='w-full relative z-10 flex items-center justify-between'>
           <div>

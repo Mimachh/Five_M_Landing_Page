@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Nav from './components/Nav/Nav'
+import Nav from '@/components/ui/Nav/Nav'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,10 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen`}>
-        
+      <body className={`${inter.className}`}>
+
         <Nav />
-     <div className='relative z-0 min-h-[200vh]'>
+     <div className='relative z-0'>
      {children}
      </div>
        
