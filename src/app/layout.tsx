@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Nav from '@/components/ui/Nav/Nav'
+import { ToastProvider } from '@/providers/toast-provider'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,7 +22,8 @@ export default function RootLayout({
       <body className={`${inter.className}`}>
 
         <Nav />
-     <div className='relative z-0'>
+        <ToastProvider />
+     <div className='relative z-0 overflow-x-hidden'>
      {children}
      </div>
        

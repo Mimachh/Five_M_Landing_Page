@@ -29,17 +29,16 @@ const Herosection = ({ state }: HeroProps) => {
             <div className="backgroundImage relative h-full w-full">
             <AnimatePresence>
             { state &&
-              <div className="absolute inset-0 flex items-center justify-center gap-[5vh] pt-[40vh] px-4 md:px-8">
-              
+              <div className="absolute inset-0 flex items-end pb-[8vh] md:pb-[0vh] md:items-center justify-center gap-[10px] md:gap-[5vh] md:pt-[40vh] px-4 md:px-8">
+                {/* Bouton soutien */}
                 <motion.div {...slideAnimation('left')}>
                   <Button size="xl" className="bg-primary border-primary text-light text-md md:text-lg">Soutenir</Button> 
                 </motion.div>
+                {/* Bouton inscription */}
                 <motion.div {...slideAnimation('right')}>
                   <div className="gradient-perso p-[2px] rounded-lg">
-
-                  <Modal />
+                    <Modal />
                   </div>
-                  
                 </motion.div>
               
               </div>

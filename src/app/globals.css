@@ -78,3 +78,58 @@
 .gradient-perso {
   @apply bg-gradient-to-r from-[rgba(0,31,227,1)] via-[rgba(255,255,255,1)] to-[rgba(236,0,24,1)]
 }
+
+/* Loader */
+
+.loader {
+  width: 75px;
+  height: 75px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-top: 5px solid #e74c3c;
+  position: relative;
+  animation: load 2s linear infinite;
+}
+
+.loader::before,.loader::after {
+  content: '';
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.loader::before {
+  border-top: 5px solid #e67e22;
+  transform: rotate(120deg);
+}
+
+.loader::after {
+  border-top: 5px solid #3498db;
+  transform: rotate(240deg);
+}
+
+.loader span {
+  position: absolute;
+  font-size: 12px;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  line-height: 75px;
+  animation: a2 2s linear infinite;
+}
+
+@keyframes load {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes a2 {
+  to {
+    transform: rotate(-360deg);
+  }
+}
